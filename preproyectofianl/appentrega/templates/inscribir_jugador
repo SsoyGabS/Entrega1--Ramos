@@ -1,0 +1,16 @@
+{% extends 'padres/base.html' %}
+
+{% block title_pagina %}
+<title>Inscribir Jugador</title>
+{% endblock title_pagina %}
+
+
+{% block mi_contenido %}
+<form action={% url 'inscribir_jugador' %} method="POST">
+    {% csrf_token %}
+    <table>
+        {{formulario}}
+    </table>
+    <button>Inscribir</button>
+</form>
+{% endblock mi_contenido %}

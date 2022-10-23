@@ -1,0 +1,32 @@
+{% extends 'appentrega/index.html' %}
+
+
+{% block title_pagina %}
+<title>Ver Jugadores</title>
+{% endblock title_pagina %}
+
+{% block h1_texto_header %}
+Ver Jugadores
+{% endblock h1_texto_header %}
+
+{% block index_contenido %}
+<a class="navbar-brand" href={% url 'inscribir_jugador' %}>Inscribir Jugadores</a>
+<p>Listado de Jugadores:</p>
+
+<form action={% url 'ver_jugadores' %} method="GET">
+    {{formulario}}
+    <button>Buscar</button>
+</form>
+<p>
+    {% if Jugadores %}
+
+        {% for jugadores in Jugadores %}
+            <li>{{jugadores.nombre}} {{jugadores.apellido}} {{jugadores.edad}}</li>
+        {% endfor %}
+
+    {% else %}
+        <p>No se encontraron resultados.</p>
+    {% endif %}
+
+</p>
+{% endblock index_contenido %}
